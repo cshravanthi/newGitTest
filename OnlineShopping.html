@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="shoppingModule">
+	<head>
+		<title>Online Shopping</title>
+		<script src="angular.js"></script>
+		<script src="main.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	</head>
+	<body>
+		<div  ng-controller="shoppingCntrl">
+			<h2>Online Shopping</h2>
+			<div class="container">
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="x in products">{{x}}<a class="badge badge-light float-right" ng-click="removeItem($index)" style="cursor:pointer;">X</a></li>
+			</ul>
+		
+			<br>
+			<form class="form-inline">
+			<input type="text" class="form-control"  placeholder="Add items here" ng-model="item"/>
+			<button type="button" class="btn btn-dark" ng-click="addItem()">Add</button>
+			<p>{{errorText}}</p>
+			</form>
+			</div>
+		</div>
+	</body>
+</html>
