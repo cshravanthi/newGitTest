@@ -1,0 +1,36 @@
+<html ng-app="todoapp">
+
+	<head>
+	
+		<title> ToDo Application</title>
+		<script src="angular.js"></script>
+		<script src="app1.js"></script>
+	
+	</head>
+	<body>
+	
+		<div ng-controller="toDoCntrl as cntrl">
+		
+			<p> Add a To Do</p>
+			<input type="text" id="todo" ng-model="cntrl.todo"></input>
+			<p><button ng-click="cntrl.addNewTodo()">Add</button></p>
+			
+			<div>
+			
+			<p> Your Tasks:</p>
+			<p><button ng-hide="cntrl.edit" ng-click="cntrl.editTodo()">Edit</button></p>
+			<p><button ng-show="cntrl.edit" ng-click="cntrl.editTodo()">Done</button></p>
+			<ol>
+					<li ng-repeat="i in cntrl.todos track by $index">
+						<span  ng-hide="cntrl.edit" ng-bind="i"></span> 
+						<input type="text" ng-model="i" ng-show="cntrl.edit"></input>
+						<button ng-hide="cntrl.edit" ng-click="cntrl.deleteTodo($index)">Delete</button>
+					</li>
+			</ol>
+			</div>
+		
+		</div>
+	
+	</body>
+	
+</html>
