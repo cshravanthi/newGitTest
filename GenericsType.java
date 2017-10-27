@@ -1,0 +1,18 @@
+public class GenericsType<T> {
+
+	private T t;
+	
+	public T get(){
+		return this.t;
+	}
+	
+	public void set(T t1){
+		this.t=t1;
+	}                                                                                                                                  
+	
+	public <U extends Number>void getType(U u){
+		
+		System.out.println("T:"+t.getClass().getName());
+		System.out.println("U:"+u.getClass().getName());
+	}
+}
